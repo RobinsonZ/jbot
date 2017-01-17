@@ -25,7 +25,7 @@ public class SlackWebAPI {
 	@Value("${slackBotToken}")
 	private static String token;
 	//TODO: Handle bad params and errors from the API by throwing an exception
-	//TODO: Catch 
+	//TODO: Write logging code for catch statements.
 	
 	/** Makes a request to the Slack API with the defined method and params.
 	 * @param method The Slack method to call.
