@@ -9,8 +9,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Bot {
     private String id;
     private String name;
-    private Icon icons;
+    private BotIcon icons;
 
+    public Bot(String id, String name, BotIcon icons) {
+    	this.id = id;
+    	this.name = name;
+    	this.icons = icons;
+    }
+    
     public String getId() {
         return id;
     }
@@ -27,11 +33,11 @@ public class Bot {
         this.name = name;
     }
 
-    public Icon getIcons() {
+    public BotIcon getIcons() {
         return icons;
     }
 
-    public void setIcons(Icon icons) {
+    public void setIcons(BotIcon icons) {
         this.icons = icons;
     }
 }

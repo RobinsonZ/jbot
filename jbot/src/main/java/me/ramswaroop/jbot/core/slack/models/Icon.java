@@ -13,8 +13,18 @@ public class Icon {
     private String image72;
     private String image192;
     private String image512;
+    
 
-    public String getImage24() {
+    public Icon(String image24, String image32, String image48, String image72, String image192, String image512) {
+		this.image24 = image24;
+		this.image32 = image32;
+		this.image48 = image48;
+		this.image72 = image72;
+		this.image192 = image192;
+		this.image512 = image512;
+	}
+
+	public String getImage24() {
         return image24;
     }
 

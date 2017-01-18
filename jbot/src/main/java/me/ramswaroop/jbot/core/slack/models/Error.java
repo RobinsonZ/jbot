@@ -7,9 +7,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Error {
-    private int code;
+
+	private int code;
     private String msg;
 
+    public Error(String msg) {
+		this.msg = msg;
+	}
+    
     public int getCode() {
         return code;
     }
