@@ -1,5 +1,7 @@
 package me.ramswaroop.jbot.core.slack.models;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,6 +21,9 @@ public class Channel {
     boolean isOrgShared;
     @JsonProperty("is_user_deleted")
     boolean isUserDeleted;
+    private List<User> members;
+    private Topic topic;
+    private Purpose purpose;
 
     public String getId() {
         return id;
@@ -83,4 +88,28 @@ public class Channel {
     public void setUserDeleted(boolean userDeleted) {
         isUserDeleted = userDeleted;
     }
+
+	public List<User> getMembers() {
+		return members;
+	}
+
+	public void setMembers(List<User> members) {
+		this.members = members;
+	}
+
+	public Topic getTopic() {
+		return topic;
+	}
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
+
+	public Purpose getPurpose() {
+		return purpose;
+	}
+
+	public void setPurpose(Purpose purpose) {
+		this.purpose = purpose;
+	}
 }
