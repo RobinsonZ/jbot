@@ -30,20 +30,25 @@ public class File {
     private String urlPrivate;
     @JsonProperty("url_private_download")
     private String urlPrivateDownload;
+    @JsonProperty("thumb_64")
     private String thumb64;
+    @JsonProperty("thumb_80")
     private String thumb80;
+    @JsonProperty("thumb_360")
     private String thumb360;
-    @JsonProperty("thumb360_gif")
+    @JsonProperty("thumb_360_gif")
     private String thumb360Gif;
     @JsonProperty("thumb360_w")
     private String thumb360W;
-    @JsonProperty("thumb360_h")
+    @JsonProperty("thumb_360_h")
     private String thumb360H;
+    @JsonProperty("thumb_480")
     private String thumb480;
-    @JsonProperty("thumb480_w")
+    @JsonProperty("thumb_480_w")
     private String thumb480W;
-    @JsonProperty("thumb480_h")
+    @JsonProperty("thumb_480_h")
     private String thumb480H;
+    @JsonProperty("thumb_160")
     private String thumb160;
     private String permalink;
     @JsonProperty("permalink_public")
@@ -73,7 +78,7 @@ public class File {
     private boolean isStarred;
     @JsonProperty("pinned_to")
     private String[] pinnedTo;
-    private Reaction reactions;
+    private Reaction[] reactions;
     @JsonProperty("comments_count")
     private int commentsCount;
 
@@ -429,11 +434,11 @@ public class File {
         this.pinnedTo = pinnedTo;
     }
 
-    public Reaction getReactions() {
+    public Reaction[] getReactions() {
         return reactions;
     }
 
-    public void setReactions(Reaction reactions) {
+    public void setReactions(Reaction[] reactions) {
         this.reactions = reactions;
     }
 

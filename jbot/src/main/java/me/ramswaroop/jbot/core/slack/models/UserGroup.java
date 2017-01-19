@@ -11,18 +11,18 @@ public class UserGroup {
     private String id;
     @JsonProperty("team_id")
     private String teamId;
-    @JsonProperty("is_user_group")
-    private boolean isUsergroup;
+    @JsonProperty("is_usergroup")
+    private boolean isUserGroup;
     private String name;
     private String description;
     private String handle;
     @JsonProperty("is_external")
     private boolean isExternal;
-    @JsonProperty("date_created")
+    @JsonProperty("date_create")
     private long dateCreated;
-    @JsonProperty("date_updated")
+    @JsonProperty("date_update")
     private long dateUpdated;
-    @JsonProperty("date_deleted")
+    @JsonProperty("date_delete")
     private long dateDeleted;
     @JsonProperty("auto_type")
     private String autoType;
@@ -54,11 +54,11 @@ public class UserGroup {
     }
 
     public boolean isUsergroup() {
-        return isUsergroup;
+        return isUserGroup;
     }
 
     public void setUsergroup(boolean usergroup) {
-        isUsergroup = usergroup;
+        isUserGroup = usergroup;
     }
 
     public String getName() {

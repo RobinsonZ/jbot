@@ -15,6 +15,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import me.ramswaroop.jbot.core.slack.models.ApiResponse;
+
 
 /** Contains static methods for accessing the Slack Web API.
  * @author Zachary Robinson
@@ -33,8 +35,7 @@ public class SlackWebAPI {
 	 * @return A Map containing the returned values as described by the Slack Web API method documentation.
 	 * @throws IOException If there is an IO error between the client and API server.
 	 */
-	@SuppressWarnings("unchecked")
-	public static Map<String, Object> makeApiRequest(String method, Map<String, String> params) throws IOException {
+	public static ApiResponse makeApiRequest(String method, Map<String, String> params) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		URIBuilder requestBuilder = new URIBuilder()
@@ -58,9 +59,9 @@ public class SlackWebAPI {
 			requestURI = null; //This is just here to make the compiler happy
 		}
 		
-		Map<String, Object> response = null;
+		ApiResponse response = null;
 		try {
-			response = mapper.readValue(new URL(requestURI.toASCIIString()), Map.class);
+			response = mapper.readValue(new URL(requestURI.toASCIIString()), ApiResponse.class);
 		} catch (JsonParseException e) {
 			// TODO write logging code
 			e.printStackTrace();
@@ -69,8 +70,8 @@ public class SlackWebAPI {
 			e.printStackTrace();
 		}
 		
-		if (!Boolean.getBoolean(response.get("ok").toString())) {
-			logger.error("Slack Web API returned error: " + response.get("error"));
+		if (!response.isOk()) {
+			logger.error("Slack Web API returned error: " + response.getError());
 		}
 		
 		return response;
@@ -81,7 +82,7 @@ public class SlackWebAPI {
 	 * @return A map containing the returned values as described in the Slack API documentation
 	 * @throws IOException if there is an IO error between the client and server.
 	 */
-	public static Map<String, Object> makeApiRequest(String method) throws IOException {
+	public static ApiResponse makeApiRequest(String method) throws IOException {
 		return makeApiRequest(method, null);
 	}
 }

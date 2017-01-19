@@ -25,6 +25,7 @@ public class User {
     private boolean isRestricted;
     @JsonProperty("is_ultra_restricted")
     private boolean isUltraRestricted;
+    @JsonProperty("has_2fa")
     private boolean has2fa;
     @JsonProperty("two_factor_type")
     private String twoFactorType;

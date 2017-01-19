@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Field {
     private String title;
     private String value;
+    private String alt;
     @JsonProperty("short_enough")
     private boolean shortEnough;
 
@@ -36,4 +37,12 @@ public class Field {
     public void setShortEnough(boolean shortEnough) {
         this.shortEnough = shortEnough;
     }
+
+	public String getAlt() {
+		return alt;
+	}
+
+	public void setAlt(String alt) {
+		this.alt = alt;
+	}
 }

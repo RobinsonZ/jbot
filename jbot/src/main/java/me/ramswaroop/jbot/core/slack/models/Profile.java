@@ -1,5 +1,7 @@
 package me.ramswaroop.jbot.core.slack.models;
 
+import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -29,6 +31,12 @@ public class Profile {
     private String image192;
     @JsonProperty("image_512")
     private String image512;
+    @JsonProperty("image_1024")
+    private String image1024;
+    @JsonProperty("image_original")
+    private String imageOriginal;
+    
+    private Map<String, Field> fields;
 
     public String getFirstName() {
         return firstName;
@@ -125,4 +133,12 @@ public class Profile {
     public void setImage512(String image512) {
         this.image512 = image512;
     }
+
+	public Map<String, Field> getFields() {
+		return fields;
+	}
+
+	public void setFields(Map<String, Field> fields) {
+		this.fields = fields;
+	}
 }

@@ -14,11 +14,21 @@ public class Channel {
     private long created;
     private String creator;
     @JsonProperty("is_im")
-    boolean isIm;
+    private boolean isIm;
     @JsonProperty("is_org_shared")
-    boolean isOrgShared;
+    private boolean isOrgShared;
     @JsonProperty("is_user_deleted")
-    boolean isUserDeleted;
+    private boolean isUserDeleted;
+    @JsonProperty("is_archived")
+    private boolean isArchived;
+    @JsonProperty("is_general")
+    private boolean isGeneral;
+    @JsonProperty("is_member")
+    private boolean isMember;
+    private String[] members;
+    private Topic topic;
+    private Purpose purpose;
+    
 
     public String getId() {
         return id;
@@ -83,4 +93,52 @@ public class Channel {
     public void setUserDeleted(boolean userDeleted) {
         isUserDeleted = userDeleted;
     }
+
+	public String[] getMembers() {
+		return members;
+	}
+
+	public void setMembers(String[] members) {
+		this.members = members;
+	}
+
+	public boolean isArchived() {
+		return isArchived;
+	}
+
+	public void setArchived(boolean isArchived) {
+		this.isArchived = isArchived;
+	}
+
+	public boolean isGeneral() {
+		return isGeneral;
+	}
+
+	public void setGeneral(boolean isGeneral) {
+		this.isGeneral = isGeneral;
+	}
+
+	public boolean isMember() {
+		return isMember;
+	}
+
+	public void setMember(boolean isMember) {
+		this.isMember = isMember;
+	}
+
+	public Purpose getPurpose() {
+		return purpose;
+	}
+
+	public void setPurpose(Purpose purpose) {
+		this.purpose = purpose;
+	}
+
+	public Topic getTopic() {
+		return topic;
+	}
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
+	}
 }
