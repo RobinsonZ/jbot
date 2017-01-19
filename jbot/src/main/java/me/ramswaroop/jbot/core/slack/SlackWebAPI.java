@@ -15,7 +15,9 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import me.ramswaroop.jbot.core.slack.models.ApiResponse;
+import me.ramswaroop.jbot.core.slack.apiresponses.ApiMethod;
+import me.ramswaroop.jbot.core.slack.apiresponses.ApiResponse;
+import me.ramswaroop.jbot.core.slack.apiresponses.AuthRevokeResponse;
 
 
 /** Contains static methods for accessing the Slack Web API.
@@ -32,12 +34,10 @@ public class SlackWebAPI {
 	/** Makes a request to the Slack API with the defined method and params.
 	 * @param method The Slack method to call.
 	 * @param params A map containing the paremeters that make up the request.
-	 * @return A Map containing the returned values as described by the Slack Web API method documentation.
-	 * @throws IOException If there is an IO error between the client and API server.
+	 * @return A URL representing the Slack request.
 	 */
-	public static ApiResponse makeApiRequest(String method, Map<String, String> params) throws IOException {
+	private static ApiResponse makeApiRequest(ApiMethod method, Map<String, String> params) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		
 		URIBuilder requestBuilder = new URIBuilder()
 				.setScheme("https")
 				.setHost("slack.com")
@@ -70,7 +70,7 @@ public class SlackWebAPI {
 			e.printStackTrace();
 		}
 		
-		if (!response.isOk()) {
+		if (!response.ok()) {
 			logger.error("Slack Web API returned error: " + response.getError());
 		}
 		
@@ -82,7 +82,7 @@ public class SlackWebAPI {
 	 * @return A map containing the returned values as described in the Slack API documentation
 	 * @throws IOException if there is an IO error between the client and server.
 	 */
-	public static ApiResponse makeApiRequest(String method) throws IOException {
+	public static ApiResponse makeApiRequest(ApiMethod method) throws IOException {
 		return makeApiRequest(method, null);
 	}
 }
