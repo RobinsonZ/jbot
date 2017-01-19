@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AuthRevokeResponse extends ApiResponse {
-	boolean revoked;
+	private boolean revoked;
 	
 	public boolean isRevoked() {return revoked;}
 }
