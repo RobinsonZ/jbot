@@ -17,11 +17,17 @@ public class Profile {
     private String email;
     private String skype;
     private String phone;
+    @JsonProperty("image_24")
     private String image24;
+    @JsonProperty("image_32")
     private String image32;
+    @JsonProperty("image_48")
     private String image48;
+    @JsonProperty("image_72")
     private String image72;
+    @JsonProperty("image_192")
     private String image192;
+    @JsonProperty("image_512")
     private String image512;
 
     public String getFirstName() {
